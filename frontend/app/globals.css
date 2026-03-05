@@ -1,44 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --font-jakarta : 'Plus Jakarta Sans', sans-serif;
-  --font-mono    : 'Space Mono', monospace;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: #07080A; color: #E8ECF4; font-family: 'Plus Jakarta Sans', sans-serif; }
 
-* { box-sizing: border-box; }
-
-html, body { height: 100%; }
-
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #0F1115; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { background: #1E2230; border-radius: 2px; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes typing {
-  0%,100% { opacity: .3; transform: scale(.8); }
-  50%      { opacity: 1;  transform: scale(1); }
-}
-
 @keyframes shimmer {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
 }
-
 @keyframes pulse-ring {
   0%   { box-shadow: 0 0 0 0 rgba(0,200,83,.4); }
   70%  { box-shadow: 0 0 0 8px rgba(0,200,83,0); }
   100% { box-shadow: 0 0 0 0 rgba(0,200,83,0); }
 }
+@keyframes typing {
+  0%,100% { opacity: .3; transform: scale(.8); }
+  50%      { opacity: 1;  transform: scale(1); }
+}
 
 .animate-fade-up  { animation: fadeUp .4s ease forwards; }
-.animate-shimmer  {
+.animate-pulse-ring { animation: pulse-ring 1.5s ease infinite; }
+.animate-shimmer {
   background: linear-gradient(90deg, #00C853, #4AAFFF, #FF6B35, #00C853);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -46,13 +34,9 @@ html, body { height: 100%; }
   background-clip: text;
   animation: shimmer 4s linear infinite;
 }
-.animate-pulse-ring { animation: pulse-ring 1.5s ease infinite; }
-
 .typing-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #00C853;
-  animation: typing 1.2s infinite;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #00C853; animation: typing 1.2s infinite; display: inline-block;
 }
 .typing-dot:nth-child(2) { animation-delay: .2s; }
 .typing-dot:nth-child(3) { animation-delay: .4s; }
